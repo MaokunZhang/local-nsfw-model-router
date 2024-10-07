@@ -8,7 +8,7 @@ def generate_ai_avatar():
         image_model = NexaImageInference(model_path="lcm-dreamshaper", local_path=None)
 
         images = image_model.txt2img(
-            prompt="A girlfriend with long black hair",
+            prompt="A big sister with long pink hair and purple eyes. Focus on head.",
             cfg_scale=image_model.params["guidance_scale"],
             width=image_model.params["width"],
             height=image_model.params["height"],
