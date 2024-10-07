@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 - Run the Streamlit app: 
   ```
-  streamlit run openai_voice_out/app.py
+  streamlit run text_only/app.py
   ```
 - Start a chat with text
 
