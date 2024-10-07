@@ -38,7 +38,7 @@ pip install -r requirements.txt
 ### File Structure
 
 
-  - `text_only/app.py`: main Streamlit app using OpenAI TTS API for voice output
+  - `text_only/app.py`: main Streamlit app
   - `text_only/utils/initialize.py`: initialize chat and load model
   - `text_only/utils/gen_avatar.py`: generate avatar for AI Soulmate
   - `text_only/utils/gen_response.py`: handle output
