@@ -22,7 +22,7 @@ Key features include:
 
 1. Clone the repository:
    ```zsh
-   git clone https://github.com/yourusername/local-nsfw-model-router.git
+   git clone https://github.com/MaokunZhang/local-nsfw-model-router.git
    cd local-nsfw-model-router
    ```
 
