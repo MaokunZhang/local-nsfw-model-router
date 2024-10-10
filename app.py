@@ -5,7 +5,7 @@ from utils.customize import open_customization_modal
 from PIL import Image
 
 img = Image.open("./nexalogo.png")
-st.set_page_config(page_title="AI Soulmate", page_icon=img)
+st.set_page_config(page_title="Local Model Router", page_icon=img)
 
 ai_avatar = "ai_avatar.png"
 
