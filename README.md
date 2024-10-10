@@ -1,4 +1,5 @@
 # Local NSFW Model Router
+![image](preview_model_router.png)
 
 ## Introduction
 
