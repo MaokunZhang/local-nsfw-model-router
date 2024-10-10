@@ -24,7 +24,7 @@ model_mapping = {
     "Llama-3.2-3B-Instruct-uncensored": "chuanli11/Llama-3.2-3B-Instruct-uncensored:gguf-q4_K_M",
     "Mistral-Nemo-12B-ArliAI-RPMax-v1.1":"ArliAI/Mistral-Nemo-12B-ArliAI-RPMax-v1.1:gguf-q4_K_M"
 }
-model_options = list(model_mapping.keys()) + ["Use Model From Nexa Model Hub 🔍","Local Model"]
+model_options = list(model_mapping.keys()) + ["Use Model From Nexa Model Hub 🔍","Local Model 📁"]
 
 def main():
     col1, col2 = st.columns([5, 5], vertical_alignment="center")
@@ -41,7 +41,7 @@ def main():
     st.sidebar.header("Model Configuration")
     model_path = st.sidebar.selectbox("Select a Model", model_options, index=model_options.index(default_model))
     
-    if model_path == "Local Model":
+    if model_path == "Local Model 📁":
         local_model_path = st.sidebar.text_input("Enter local model path")
         if not local_model_path:
             st.warning("Please enter a valid local model path to proceed.")
@@ -73,13 +73,13 @@ def main():
     
     if ("current_model_path" not in st.session_state or 
         st.session_state.current_model_path != model_path or
-        (model_path == "Local Model" and local_model_path != st.session_state.current_local_model_path) or
+        (model_path == "Local Model 📁" and local_model_path != st.session_state.current_local_model_path) or
         (model_path == "Use Model From Nexa Model Hub 🔍" and hub_model_name != st.session_state.current_hub_model_name)):
         st.session_state.current_model_path = model_path
         st.session_state.current_local_model_path = local_model_path
         st.session_state.current_hub_model_name = hub_model_name
         with st.spinner("Hang tight! Loading model, you can check the progress in the terminal. I'll be right back with you : )"):
-            if model_path == "Local Model" and local_model_path:
+            if model_path == "Local Model 📁" and local_model_path:
                 st.session_state.nexa_model = load_local_model(local_model_path)
             elif model_path == "Use Model From Nexa Model Hub 🔍" and hub_model_name:
                 st.session_state.nexa_model = load_model(hub_model_name)
