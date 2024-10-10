@@ -1,18 +1,12 @@
 # Local NSFW Model Router
 
-Key features include:
-* Run models with [Nexa SDK](https://github.com/NexaAI/nexa-sdk) entirely on device for ultimate privacy
-* Chat interface with [Streamlit](https://streamlit.io/) to chat with preset or customize character
-* Built in model switcher
-* Selection of uncensored language models at [Nexa Model Hub](https://nexa.ai/models?tasks=Uncensored) with RAM and disk size suggestions
-
 ## Introduction
 
 The Local NSFW Model Router is a specialized tool designed for efficient comparison and utilization of AI language models optimized for NSFW (Not Safe For Work) content and role-playing scenarios. This project provides a local, privacy-focused solution for users to interact with and evaluate various AI models without relying on external servers or cloud-based services.
 
 Key features include:
 * Run models with [Nexa SDK](https://github.com/NexaAI/nexa-sdk) entirely on device for ultimate privacy
-* Chat interface (powered by Streamlit) to chat with preset or customize character
+* Chat interface with [Streamlit](https://streamlit.io/) to chat with preset or customize character
 * Built in model switcher
 * Selection of uncensored language models at [Nexa Model Hub](https://nexa.ai/models?tasks=Uncensored) with RAM and disk size suggestions
 
