@@ -7,7 +7,10 @@ from PIL import Image
 img = Image.open("./nexalogo.png")
 st.set_page_config(page_title="AI Soulmate", page_icon=img)
 
-ai_avatar = "ai_avatar.png"
+# init ai_avatar at the start of the app:
+# ai_avatar = "ai_avatar.png"
+if "ai_avatar" not in st.session_state:
+    st.session_state.ai_avatar = "ai_avatar.png"
 
 default_model = "llama3-uncensored"
 model_mapping = {
@@ -24,7 +27,8 @@ def main():
     with col1:
         st.title("AI Soulmate")
     with col2:
-        avatar_path = st.session_state.get("ai_avatar", "ai_avatar.png")
+        # avatar_path = st.session_state.get("ai_avatar", "ai_avatar.png")
+        avatar_path = st.session_state.ai_avatar
         if st.session_state.get("modal_open") and "uploaded_avatar" in st.session_state:
             avatar_path = st.session_state.uploaded_avatar
         st.image(avatar_path, width=150)
@@ -33,7 +37,7 @@ def main():
 
     st.sidebar.header("Model Configuration")
     model_path = st.sidebar.selectbox("Select a Model", model_options, index=model_options.index(default_model))
-    
+
     if model_path == "Local Model":
         local_model_path = st.sidebar.text_input("Enter local model path")
         if not local_model_path:
@@ -63,8 +67,8 @@ def main():
     else:
         local_model_path = None
         hub_model_name = None
-    
-    if ("current_model_path" not in st.session_state or 
+
+    if ("current_model_path" not in st.session_state or
         st.session_state.current_model_path != model_path or
         (model_path == "Local Model" and local_model_path != st.session_state.current_local_model_path) or
         (model_path == "Use Model From Nexa Model Hub" and hub_model_name != st.session_state.current_hub_model_name)):
@@ -79,10 +83,10 @@ def main():
             else:
                 st.session_state.nexa_model = load_model(model_mapping[model_path])
         st.session_state.messages = []
-        
+
         if "intro_sent" in st.session_state:
             del st.session_state["intro_sent"]
-        
+
     if not model_path:
         st.warning(
             "Please enter a valid path or identifier for the model in Nexa Model Hub to proceed."
@@ -113,7 +117,7 @@ def main():
     )
 
     initialize_chat()
-    
+
     # check if customization was just applied:
     if st.session_state.get("customization_applied", False):
         st.session_state.customization_applied = False  # reset the flag
@@ -128,12 +132,12 @@ def main():
                     message["role"], avatar=st.session_state.ai_avatar
                 ):
                     st.markdown(message["content"])
-                    
+
     if "intro_sent" not in st.session_state:
         st.session_state.messages.append({"role": "user", "content": "hello, please intro your self in 30 words.", "visible": False})
         st.session_state.intro_sent = True
-            
-        with st.chat_message("assistant", avatar=ai_avatar):
+
+        with st.chat_message("assistant", avatar=st.session_state.ai_avatar):
             response_placeholder = st.empty()
             full_response = ""
             for chunk in generate_chat_response(st.session_state.nexa_model):
@@ -158,7 +162,8 @@ def main():
         with st.chat_message("user"):
             st.markdown(prompt)
 
-        with st.chat_message("assistant", avatar=ai_avatar):
+        # with st.chat_message("assistant", avatar=ai_avatar):
+        with st.chat_message("assistant", avatar=st.session_state.ai_avatar):
             response_placeholder = st.empty()
             full_response = ""
             for chunk in generate_chat_response(st.session_state.nexa_model):
