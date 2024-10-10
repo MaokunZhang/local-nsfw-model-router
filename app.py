@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.initialize import initialize_chat, load_model, load_local_model
+from utils.initialize import initialize_or_update_system_message, initialize_chat, load_model, load_local_model
 from utils.gen_response import generate_chat_response
 from utils.customize import open_customization_modal
 from PIL import Image
@@ -83,6 +83,9 @@ def main():
             else:
                 st.session_state.nexa_model = load_model(model_mapping[model_path])
         st.session_state.messages = []
+
+        # update the system msg with current customization:
+        initialize_or_update_system_message()
 
         if "intro_sent" in st.session_state:
             del st.session_state["intro_sent"]

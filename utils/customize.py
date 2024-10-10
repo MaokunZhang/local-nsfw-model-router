@@ -3,12 +3,13 @@ from PIL import Image
 from streamlit_modal import Modal
 import os
 import shutil
+from utils.initialize import initialize_or_update_system_message
 
 
 def initialize_temp_customization():
     if "temp_customization" not in st.session_state:
         st.session_state.temp_customization = {
-            "name": st.session_state.get("soulmate_name", "Claudia"),
+            "name": st.session_state.get("soulmate_name", "Yuzuki"),
             "gender": st.session_state.get("soulmate_gender", "Female"),
             "custom_instructions": st.session_state.get("custom_instructions", ""),
         }
@@ -107,12 +108,13 @@ def apply_changes():
     ]
 
     # update system prompt with new customization:
-    new_prompt = f"""
-    You are {st.session_state.soulmate_name}, my perfect {st.session_state.soulmate_gender.lower()} soulmate.
-    {st.session_state.custom_instructions}
-    Start by introducing yourself briefly. You will respond in a concise way.
-    """
-    st.session_state.messages = [{"role": "system", "content": new_prompt.strip()}]
+    initialize_or_update_system_message()
+    # new_prompt = f"""
+    # You are {st.session_state.soulmate_name}, my perfect {st.session_state.soulmate_gender.lower()} soulmate.
+    # {st.session_state.custom_instructions}
+    # Start by introducing yourself briefly. You will respond in a concise way.
+    # """
+    # st.session_state.messages = [{"role": "system", "content": new_prompt.strip()}]
 
     # set flag to indicate customization was applied:
     st.session_state.customization_applied = True
