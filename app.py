@@ -49,9 +49,14 @@ def main():
                 hub_model_name = hub_model_name.strip()
         if not hub_model_name:
             st.warning(f"""
-                Please enter a valid model name from Nexa Model Hub.
-                You can proceed by copying the full nexa run command or the model name in the nexa run command.
-                Click [here](https://nexaai.com/models) to visit Nexa Model Hub.
+                How to Explore and Run Models on Nexa Model Hub:
+                \n1. Visit [Nexa Model Hub](https://nexaai.com/models).
+                \n2. Use the task filter to find models suitable for your use case (e.g., "uncensored").
+                \n3. Select your desired model (e.g., Sao10K/MN-BackyardAI-Party-12B-v1).
+                \n4. Copy the Nexa run command (e.g., nexa run Sao10K/MN-BackyardAI-Party-12B-v1:gguf-q4_K_M).
+                \n5. Paste the command into the "Enter model name from Nexa Model Hub" field on the sidebar on the left.
+                \n6. Wait a few moments for the new model to download and load into the chat.
+                \nNote: Different quantization options (like q4_K_M in the example) affect the model's performance and resource usage. Choose the option that best suits your hardware capabilities and performance requirements.
             """)
             st.stop()
         local_model_path = None

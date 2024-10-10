@@ -6,7 +6,6 @@ The project is an interactive AI character - all running locally using the Nexa 
 
 - Key features:
 
-  - Local image generation
   - Uncensored model
   - No privacy concerns
 
@@ -38,11 +37,10 @@ pip install -r requirements.txt
 ### File Structure
 
 
-  - `text_only/app.py`: main Streamlit app
-  - `text_only/utils/initialize.py`: initialize chat and load model
-  - `text_only/utils/gen_avatar.py`: generate avatar for AI Soulmate
-  - `text_only/utils/gen_response.py`: handle output
-  - `text_only/utils/customize.py`: allow users to customize roles
+  - `app.py`: main Streamlit app
+  - `utils/initialize.py`: initialize chat and load model
+  - `utils/gen_response.py`: handle output
+  - `utils/customize.py`: allow users to customize roles
 
 
 ### Resources
