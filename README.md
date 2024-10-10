@@ -1,5 +1,5 @@
 # Local NSFW Model Router
-![image](preview_model_router.png)
+![image](https://github.com/MaokunZhang/AI-Soulmate-with-model-switcher/blob/main/preview_model_router.png)
 
 ## Introduction
 
