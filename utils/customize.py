@@ -107,6 +107,9 @@ def apply_changes():
         "custom_instructions"
     ]
 
+    # clear previous chat messages:
+    st.session_state.messages = []
+
     # update system prompt with new customization:
     initialize_or_update_system_message()
     # new_prompt = f"""
