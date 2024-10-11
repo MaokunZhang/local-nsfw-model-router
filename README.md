@@ -14,24 +14,20 @@ Key features include:
 ## Installation
 
 ### Prerequisites
-
 1. Set up [Miniconda](https://docs.anaconda.com/miniconda/miniconda-install/) and create a new conda virtual environment.
 2. Ensure you have Git installed on your system.
 
 ### Step-by-Step Installation
-
 1. Clone the repository:
    ```zsh
    git clone https://github.com/MaokunZhang/local-nsfw-model-router.git
    cd local-nsfw-model-router
    ```
-
 2. Create and activate a new Conda environment:
    ```zsh
    conda create --name nsfw_model_router python=3.12
    conda activate nsfw_model_router
    ```
-
 3. Install Nexa SDK:
    - For CPU:
      ```zsh
@@ -42,7 +38,6 @@ Key features include:
      CMAKE_ARGS="-DGGML_METAL=ON -DSD_METAL=ON" pip install nexaai --prefer-binary --index-url https://nexaai.github.io/nexa-sdk/whl/metal --extra-index-url https://pypi.org/simple --no-cache-dir
      ```
    - For CUDA and AMD GPU support, refer to the [Nexa SDK Installation Guide](GitHub - NexaAI/nexa-sdk: Nexa SDK is a comprehensive toolkit for supporting ONNX and GGML models. I).
-
 4. Install other dependencies:
    ```zsh
    pip install -r requirements.txt
@@ -54,11 +49,9 @@ Run the Streamlit app:
 ```zsh
 streamlit run app.py
 ```
-
 Follow the on-screen instructions to start chatting with the default model or switch between different models.
 
 ## File Structure
-
 - `app.py`: Main Streamlit application
 - `utils/`:
   - `initialize.py`: Initializes chat and loads models
@@ -66,10 +59,8 @@ Follow the on-screen instructions to start chatting with the default model or sw
   - `customize.py`: Allows users to customize character roles
 
 ## Resources
-
 - [NexaAI Model Hub](https://nexaai.com/models)
 - [Nexa-SDK GitHub Repository](https://github.com/NexaAI/nexa-sdk)
 
 ## Disclaimer
-
 This project is intended for adult users and contains NSFW content. Use responsibly and in accordance with local laws and regulations.
