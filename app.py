@@ -7,8 +7,6 @@ from PIL import Image
 img = Image.open("./nexalogo.png")
 st.set_page_config(page_title="Local Model Router", page_icon=img)
 
-# init ai_avatar at the start of the app:
-# ai_avatar = "ai_avatar.png"
 if "ai_avatar" not in st.session_state:
     st.session_state.ai_avatar = "ai_avatar.png"
 
@@ -34,7 +32,6 @@ def main():
     with col1:
         st.title("Local Model Router")
     with col2:
-        # avatar_path = st.session_state.get("ai_avatar", "ai_avatar.png")
         avatar_path = st.session_state.ai_avatar
         if st.session_state.get("modal_open") and "uploaded_avatar" in st.session_state:
             avatar_path = st.session_state.uploaded_avatar
@@ -172,7 +169,6 @@ def main():
         with st.chat_message("user"):
             st.markdown(prompt)
 
-        # with st.chat_message("assistant", avatar=ai_avatar):
         with st.chat_message("assistant", avatar=st.session_state.ai_avatar):
             response_placeholder = st.empty()
             full_response = ""

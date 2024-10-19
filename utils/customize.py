@@ -106,13 +106,7 @@ def apply_changes():
 
     # update system prompt with new customization:
     initialize_or_update_system_message()
-    # new_prompt = f"""
-    # You are {st.session_state.soulmate_name}, my perfect {st.session_state.soulmate_gender.lower()} soulmate.
-    # {st.session_state.custom_instructions}
-    # Start by introducing yourself briefly. You will respond in a concise way.
-    # """
-    # st.session_state.messages = [{"role": "system", "content": new_prompt.strip()}]
-
+    
     # set flag to indicate customization was applied:
     st.session_state.customization_applied = True
     # clean up temporary customization data:
