@@ -88,16 +88,10 @@ def close_modal():
 
 
 def apply_changes():
-    # update avatar:
     if "uploaded_avatar" in st.session_state:
-        permanent_avatar_path = "ai_avatar.png"
-        shutil.copy(st.session_state.uploaded_avatar, permanent_avatar_path)
-        st.session_state.ai_avatar = permanent_avatar_path
-        os.remove(st.session_state.uploaded_avatar)
+        st.session_state.ai_avatar = st.session_state.uploaded_avatar
         del st.session_state.uploaded_avatar
-
-    # if no new avatar was uploaded:
-    if "ai_avatar" not in st.session_state:
+    else:
         st.session_state.ai_avatar = "ai_avatar.png"
 
     # update other customization options:
