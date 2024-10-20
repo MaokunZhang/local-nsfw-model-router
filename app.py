@@ -113,6 +113,9 @@ def main():
     top_p = st.sidebar.slider(
         "Top P", 0.0, 1.0, st.session_state.nexa_model.params["top_p"]
     )
+    nctx = st.sidebar.slider(
+        "Context length", 1000, 9999, st.session_state.nexa_model.params["nctx"]
+    )
 
     st.session_state.nexa_model.params.update(
         {
@@ -120,6 +123,7 @@ def main():
             "max_new_tokens": max_new_tokens,
             "top_k": top_k,
             "top_p": top_p,
+            "Context length": nctx,
         }
     )
 

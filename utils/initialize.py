@@ -32,6 +32,7 @@ def load_model(model_path):
         max_new_tokens=256,
         top_k=50,
         top_p=1.0,
+        nctx=9999,
     )
     return nexa_model
 
